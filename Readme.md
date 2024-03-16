@@ -15,12 +15,14 @@ Before you begin, make sure you have the following installed:
 
 To install Ollama, you can follow these steps:
 
-1. Clone this repository on your local computer or server(whatever): `git clone https://github.com/ollama-ai/ollama-docker-compose.git`
-2. Change directory into the cloned repository: `cd ollama-docker-compose`
+1. Clone this repository on your local computer or server(whatever): `git clone https://github.com/woueziou/ollama_ui.git`
+2. Change directory into the cloned repository: `cd ollama-ui`
 3. Build the Docker images: `docker-compose build`
 4. Start the Docker containers: `docker-compose up -d`
 
-Once the installation is complete, you can access the Ollama web UI by navigating to `http://localhost:8080` in your web browser.
+Once the installation is complete, you can access the Ollama web UI by navigating to `http://localhost:5890` in your web browser.
+
+
 
 ## Getting a New Model
 
@@ -37,17 +39,27 @@ You can configure the Ollama server and web UI by editing the `docker-compose.ym
 
 ```
 ollama:
-  image: ollamaai/ollama:latest
-  ports:
-    - "8080:8080"
-  environment:
-    - PORT=8080
+    container_name: ollama
+    image: ollama/ollama
+    restart: "unless-stopped"
+    volumes:
+      - ./ollama:/root/.ollama
+    expose:
+      - "11434"
 ```
 
-You can also configure the Ollama web UI by editing the `Dockerfile` in the `ollama-webui` directory. For example, you can change the port that the web UI listens on by setting the `PORT` environment variable in the `EXPOSE` directive.
+You can also configure the Ollama web UI by editing the `docker-compose.yaml` file . For example, you can change the port that the web UI listens on
 
 ```
-EXPOSE 8080
+openwebui:
+    image: ghcr.io/ollama-webui/ollama-webui:main
+    restart: always
+    volumes:
+      - ./ollama-webui:/app/backend/data
+    ports:
+      - "YOUR_PORT:8080"
+    environment:
+      - OLLAMA_BASE_URL = "ollama"
 ```
 
 ## Troubleshooting
@@ -66,3 +78,7 @@ docker-compose run --rm ollama /bin/bash
 ```
 
 This will open a new terminal session inside the Ollama container, where you can run any Ollama commands. When you are finished, you can exit the container by typing `exit`.
+
+
+For any assistance feel free to reach me.
+Made in 🇹🇬.
