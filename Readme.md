@@ -1,12 +1,21 @@
 # Ollama Docker Compose
 
-This repository contains a `docker-compose.yml` file that allows you to deploy both the Ollama server and the Ollama web UI on a single Docker container using Docker Compose.
+This repository contains a `docker-compose.yaml` file that allows you to deploy both the Ollama server and the WEB UI on a single Docker container using Docker Compose.
+
+## Prerequisites
+
+Before you begin, make sure you have the following installed:
+
+1. [Docker](https://docs.docker.com/engine/install/)
+
+2. [Docker Compose](https://docs.docker.com/compose/install/)
+
 
 ## Installation
 
 To install Ollama, you can follow these steps:
 
-1. Clone this repository: `git clone https://github.com/ollama-ai/ollama-docker-compose.git`
+1. Clone this repository on your local computer or server(whatever): `git clone https://github.com/ollama-ai/ollama-docker-compose.git`
 2. Change directory into the cloned repository: `cd ollama-docker-compose`
 3. Build the Docker images: `docker-compose build`
 4. Start the Docker containers: `docker-compose up -d`
