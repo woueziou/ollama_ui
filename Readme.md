@@ -28,7 +28,7 @@ Once the installation is complete, you can access the Ollama web UI by navigatin
 
 To get a new model, follow these steps:
 
-1. Navigate to the Ollama web UI at `http://localhost:8080` in your web browser.
+1. Navigate to the Ollama web UI at `http://localhost:5890` in your web browser.
 2. Click on the "New Model" button in the top right corner of the page.
 3. Enter the desired name for your new model and click the "Create" button.
 4. Your new model will be created and you can start training it using the Ollama web UI.
@@ -80,5 +80,7 @@ docker-compose run --rm ollama /bin/bash
 This will open a new terminal session inside the Ollama container, where you can run any Ollama commands. When you are finished, you can exit the container by typing `exit`.
 
 
-For any assistance feel free to reach me.
-Made in 🇹🇬.
+For any assistance feel free to reach me on [Telegram](https://t.me/woueziou)
+
+
+Made in 🇹🇬 ✊🏿.
