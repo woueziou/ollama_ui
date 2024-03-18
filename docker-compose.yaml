@@ -6,8 +6,8 @@ services:
     restart: "unless-stopped"
     volumes:
       - ./ollama:/root/.ollama
-    expose:
-      - "11434"
+    ports:
+      - "11434:11434"
   openwebui:
     image: ghcr.io/ollama-webui/ollama-webui:main
     restart: always
@@ -16,6 +16,6 @@ services:
     ports:
       - "5890:8080"
     environment:
-      - OLLAMA_BASE_URL = "ollama"
+      - OLLAMA_BASE_URL = "http://ollama:11434"
 
   
